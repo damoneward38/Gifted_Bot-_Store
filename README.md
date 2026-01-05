@@ -1,4 +1,13 @@
+import { pgTable, serial, integer, varchar, text, timestamp } from "drizzle-orm/pg-core";
 
+export const artistProfiles = pgTable("artist_profiles", {
+  id: serial("id").primaryKey(),
+  userId: integer("user_id").notNull(),
+  artistName: varchar("artist_name", { length: 255 }).notNull(),
+  bio: text("bio"),
+  genre: varchar("genre", { length: 128 }),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
 # 🎵 Gifted Eternity Platform — Complete Setup & Readiness Guide
 
 This README contains **everything required** for the Gifted Eternity platform to:
